@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>岁岁年年 · 作品集</title>
+<meta name="description" content="岁岁年年 — 产品设计作品集">
+<meta name="theme-color" content="#0b0b0c">
+<style>
+  :root{
+    --bg:#0b0b0c;
+    --fg:#f2efe9;
+    --muted:#8a8578;
+    --line:rgba(242,239,233,.14);
+    --accent:#d9c7a3;
+    --card:#121214;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,sans-serif;
+    line-height:1.7;-webkit-font-smoothing:antialiased;
+    padding:0 24px;
+  }
+  .wrap{max-width:1080px;margin:0 auto}
+  /* ---------- 头部 ---------- */
+  header{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:28px 0;border-bottom:1px solid var(--line);
+    font-size:13px;letter-spacing:.08em;color:var(--muted);
+  }
+  header .brand{color:var(--fg);letter-spacing:.14em}
+  header nav a{color:var(--muted);text-decoration:none;margin-left:22px;transition:color .25s}
+  header nav a:hover{color:var(--accent)}
+  /* ---------- 首屏 ---------- */
+  .hero{padding:110px 0 96px;position:relative}
+  .hero .eyebrow{
+    font-size:12px;letter-spacing:.22em;color:var(--muted);
+    text-transform:uppercase;margin-bottom:26px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .hero .eyebrow::before{
+    content:"";width:28px;height:1px;background:var(--accent);display:inline-block;
+  }
+  h1{
+    font-family:"Songti SC","SimSun",Georgia,serif;
+    font-size:clamp(44px,9vw,104px);
+    font-weight:400;line-height:1.08;letter-spacing:.04em;
+  }
+  h1 .en{
+    display:block;font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(13px,2.2vw,17px);letter-spacing:.42em;
+    color:var(--muted);margin-top:26px;text-transform:uppercase;
+  }
+  .hero p.lead{
+    max-width:520px;margin-top:40px;font-size:16px;color:#c9c4b8;
+  }
+  .scrollhint{
+    position:absolute;bottom:0;left:0;font-size:11px;letter-spacing:.2em;
+    color:var(--muted);
+  }
+  .scrollhint span{display:inline-block;animation:drop 2.4s ease-in-out infinite}
+  @keyframes drop{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(6px);opacity:1}}
+  /* ---------- 作品 ---------- */
+  section{padding:76px 0;border-top:1px solid var(--line)}
+  .sec-head{
+    display:flex;justify-content:space-between;align-items:baseline;margin-bottom:44px;
+  }
+  h2{
+    font-family:"Songti SC","SimSun",Georgia,serif;
+    font-size:26px;font-weight:400;letter-spacing:.06em;
+  }
+  .sec-head .idx{font-size:12px;letter-spacing:.2em;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:2px;
+    padding:26px;min-height:230px;display:flex;flex-direction:column;
+    justify-content:space-between;transition:border-color .3s,transform .3s;
+  }
+  .card:hover{border-color:rgba(217,199,163,.4);transform:translateY(-3px)}
+  .card .num{font-size:11px;letter-spacing:.2em;color:var(--muted)}
+  .card h3{font-size:17px;font-weight:500;margin:14px 0 8px;letter-spacing:.03em}
+  .card p{font-size:13px;color:var(--muted);line-height:1.75}
+  .card .tag{
+    margin-top:18px;font-size:11px;letter-spacing:.12em;
+    color:var(--accent);border-top:1px solid var(--line);padding-top:12px;
+  }
+  /* ---------- 关于 ---------- */
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+  .about p{font-size:15px;color:#bdb8ac;max-width:420px}
+  .facts{font-size:14px}
+  .facts div{
+    display:flex;justify-content:space-between;gap:20px;
+    padding:14px 0;border-bottom:1px solid var(--line);
+  }
+  .facts dt{color:var(--muted);letter-spacing:.08em;font-size:12px}
+  .facts dd{text-align:right}
+  .facts a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--line)}
+  .facts a:hover{color:var(--accent);border-color:var(--accent)}
+  /* ---------- 页脚 ---------- */
+  footer{
+    padding:44px 0 60px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:12px;color:var(--muted);letter-spacing:.1em;
+  }
+  /* ---------- 入场 ---------- */
+  .reveal{opacity:0;transform:translateY(18px);animation:in .9s cubic-bezier(.22,.8,.3,1) forwards}
+  .d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.3s}
+  @keyframes in{to{opacity:1;transform:none}}
+  @media (max-width:820px){
+    .grid{grid-template-columns:1fr}
+    .about{grid-template-columns:1fr;gap:34px}
+    .hero{padding:76px 0 80px}
+    header nav a{margin-left:16px;font-size:12px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{animation:none;opacity:1;transform:none}
+    .scrollhint span{animation:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">岁岁年年</div>
+    <nav>
+      <a href="#works">作品</a>
+      <a href="#about">关于</a>
+      <a href="mailto:hello@suisuinian.loc.cc">联系</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow reveal d1">Portfolio · 2026</div>
+    <h1 class="reveal d2">岁岁年年<span class="en">Sui Sui Nian Nian</span></h1>
+    <p class="lead reveal d3">
+      产品设计 / 视觉设计。这里放我的作品、过程和一点想法。<br>
+      页面正在施工中，先把名字留在这里。
+    </p>
+    <div class="scrollhint"><span>↓</span> 向下</div>
+  </div>
+
+  <section id="works">
+    <div class="sec-head">
+      <h2>作品</h2>
+      <div class="idx">01 — 03</div>
+    </div>
+    <div class="grid">
+      <div class="card reveal d1">
+        <div>
+          <div class="num">01</div>
+          <h3>作品一</h3>
+          <p>这里写项目背景、你解决的问题和你做的那部分。两三行就够，重点是说清「为什么是你做的」。</p>
+        </div>
+        <div class="tag">产品设计 · 2026</div>
+      </div>
+      <div class="card reveal d2">
+        <div>
+          <div class="num">02</div>
+          <h3>作品二</h3>
+          <p>把落地的成果写出来：上线了没、谁在用、数据怎样。作品集里最有说服力的永远是可验证的结果。</p>
+        </div>
+        <div class="tag">视觉设计 · 2026</div>
+      </div>
+      <div class="card reveal d3">
+        <div>
+          <div class="num">03</div>
+          <h3>作品三</h3>
+          <p>可以放毕业设计。过程图、草图、最终效果分开排，比一股脑堆图更有说服力。</p>
+        </div>
+        <div class="tag">毕业设计 · 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="sec-head">
+      <h2>关于</h2>
+      <div class="idx">02</div>
+    </div>
+    <div class="about">
+      <p>
+        我是谁、在学什么、想做什么——三句话写完就够了。别写「热爱设计、善于沟通」这种谁都能写的话，
+        写具体的：做过什么、擅长什么工具、现在对什么感兴趣。
+      </p>
+      <dl class="facts">
+        <div><dt>身份</dt><dd>产品设计 · 学生</dd></div>
+        <div><dt>工具</dt><dd>Rhino / KeyShot / Adobe</dd></div>
+        <div><dt>邮箱</dt><dd><a href="mailto:hello@suisuinian.loc.cc">hello@suisuinian.loc.cc</a></dd></div>
+        <div><dt>本站</dt><dd>suisuinian.loc.cc</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <footer>
+    <div>© 2026 岁岁年年</div>
+    <div>MADE WITH PATIENCE</div>
+  </footer>
+
+</div>
+</body>
+</html>
